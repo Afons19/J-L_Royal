@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+header {
+    color: white;
+    min-height: 100vh;
+    background-color: cadetblue;
+    background: url('../imagens/heroSection.JPG') center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header > p {
+    font-size: 580%;
+    font-weight: 670;
+    padding-left: 10px;
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 390px;
+}
+
+menu > h1 {
+    font-variant: small-caps;
+}
+
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul > li {
+    margin-left: 20px;
+}
+
+ul > li > a {
+    text-decoration: none;
+    color: white;
+}
+
+li > a:hover {
+    text-decoration: underline;
+    color: silver;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+#sect1 {
+    margin-bottom: 100px;
+}
+
+#sect1-item1 {
+    font-size: 17pt;
+    font-weight: 700;
+    text-align: left;
+}
+
+#sect1-item1 > p > span {
+    font-size: 16px;
+}
+
+#sect1-item2 {
+    font-size: 16px;
+    text-align: justify;
+    margin: 20px 0;
+    color: silver;
+}
+
+#sect1-item3 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+#sect1-item3 > div > h2 {
+    font-size: 25pt;
+}
+
+@media screen and (min-width: 480px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+    #sect1-item1 {
+        font-size: 34pt;
+        font-weight: 700;
+        text-align: left;
+    }
+
+    #sect1-item1 > p > span {
+        font-size: 24pt;
+    }
+
+    #sect1-item2 {
+        margin-left: 600px;
+        font-size: 19px;
+        text-align: left;
+        margin-top: 30px;
+    }
+
+    #sect1-item3 {
+        grid-template-columns: repeat(4, 1fr); /* desktop em 4 colunas */
+    }
+}
