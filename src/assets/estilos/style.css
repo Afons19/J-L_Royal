@@ -67,6 +67,7 @@ nav > ul > li {
 nav > ul > li > a {
     text-decoration: none;
     color: white;
+    font-weight: 510;
 }
 
 li > a:hover {
@@ -82,6 +83,11 @@ main {
     background-color: black;
     color: white;
     padding: 20px;
+}
+
+h3 {
+    color: silver;
+    font-size: 12pt;
 }
 
 #sect1 {
@@ -116,6 +122,83 @@ main {
     font-size: 25pt;
 }
 
+#art2-conteiner {
+    padding: 26px;
+    background-color: white;
+}
+
+#sect2-item1 > p {
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+}
+
+#art3-conteiner {
+    margin-top: 30px;
+}
+
+#btnLink {
+    text-align: center;
+}
+
+#link {
+    background-color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    padding: 4px;
+    scale: 0;
+}
+
+#btnlink:hover {
+    background-color: black;
+    color: white;
+    transition: 7s ease;
+
+}
+
+#sect3-item1 {
+    font-size: 17pt;
+    font-weight: 700;
+    margin: auto 0;
+    text-align: justify;
+    margin-bottom: 5px;
+}
+
+#sect3-item2 {
+    margin-bottom: 20px;
+}
+
+#sect3_2-item3 {
+    text-align: center;
+    margin: 0 10px;
+}
+
+#sect3_1-item3 {
+    text-align: left; 
+}
+
+ img {
+    padding: 10px;
+}
+
+/* Adicione isso ao seu style.css */
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    margin: 30px 0;
+    opacity: 0.6;
+}
+
+/* Ou para um estilo mais moderno */
+hr.modern {
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.75), rgba(0,0,0,0));
+    margin: 40px 0;
+}
+
 @media screen and (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -144,9 +227,18 @@ main {
     nav.active {
         display: flex;
     }
+
+    #sect1-item3 > div > p {
+        margin-bottom: 20px;
+
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    menu {
+        margin-bottom: 425px;
+    }
+
     menu h1 {
         font-size: 40px;
     }
@@ -171,4 +263,24 @@ main {
     #sect1-item3 {
         grid-template-columns: repeat(4, 1fr); /* desktop em 4 colunas */
     }
+
+    #sect3 {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    img  {
+        width: 550px;
+        height: 300px;
+    }
+
+    #btnLink {
+        text-align: center;
+    }
+    
+    #link {
+        width: fit-content;
+    }
+
+
 }
