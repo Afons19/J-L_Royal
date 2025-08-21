@@ -45,7 +45,6 @@ header {
 
 .header-container >  a {
     text-decoration: none;
-    /* color: white; */
 }
 
 .logo {
@@ -125,6 +124,7 @@ header::before {
 /* Main Content */
 main {
     padding: 100px 0;
+    padding: 100px 10px;
     background-color: white;
     color: #1a1a1a;
     margin-top: 100vh;
@@ -179,6 +179,17 @@ main {
     margin-bottom: 30px;
 }
 
+.project-header > a > span {
+    color: #1a1a1a;
+}
+
+.project-header > a > span:hover {
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    transition: .7s ease;
+}
+
 .project-title {
     font-size: 1.5rem;
     font-weight: 400;
@@ -212,6 +223,7 @@ main {
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn:hover {
@@ -238,6 +250,60 @@ hr.modern {
     height: 1px;
     background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.75), rgba(0,0,0,0));
     margin: 40px 0;
+}
+
+/* Accordion Styles */
+.accordion {
+    max-width: 800px;
+    margin: 40px auto;
+    
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 5px;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #f8f8f8;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding: 0 20px 20px;
 }
 
 /* Responsividade */
@@ -292,9 +358,151 @@ hr.modern {
     .section-heading {
         font-size: 2rem;
     }
+    
+    .project-image {
+        /* width: 100%;
+        height: 300px; */
+        width: 440px;
+        height: 310px;
+        object-fit: cover;
+    }
+}
+
+/* Contact Section */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    background-color: #f8f8f8;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contact-info h3 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-list span {
+    color: #666;
+    font-size: 24px;
+}
+
+.contact-list h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.contact-list p {
+    color: #666;
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.contact-form h3 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #666;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1a1a1a;
+    outline: none;
+}
+
+.form-group input:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:valid ~ label {
+    top: -10px;
+    left: 10px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 0.8rem;
+    color: #1a1a1a;
+}
+
+.form-group select:required:invalid {
+    color: #666;
+}
+
+.form-group select:required:valid {
+    color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        order: 2;
+    }
+    
+    .contact-form {
+        order: 1;
+    }
 }
 
 @media (max-width: 576px) {
+    .project-image {
+        /* width: 100%;
+        height: 300px; */
+        width: 340px;
+        height: 210px;
+        object-fit: cover;
+    }
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
