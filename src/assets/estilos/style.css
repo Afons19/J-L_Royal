@@ -1,3 +1,15 @@
+/* Animações */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Reset e estilos base */
 * {
     margin: 0;
@@ -324,19 +336,21 @@ hr.modern {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        z-index: 1001;
     }
     
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 0;
         right: -100%;
-        width: 80%;
-        height: calc(100vh - 70px);
-        background-color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: right 0.3s ease;
+        transition: all 0.3s ease-in-out;
+        z-index: 1000;
     }
     
     .nav-menu.active {
@@ -344,11 +358,20 @@ hr.modern {
     }
     
     .nav-menu li {
-        margin: 15px 0;
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .nav-menu.active li {
+        opacity: 1;
+        transform: translateY(0);
     }
     
     .nav-menu li a {
-        color: #1a1a1a;
+        color: white;
+        font-size: 1.2rem;
     }
 
     .hero-title {
@@ -360,8 +383,6 @@ hr.modern {
     }
     
     .project-image {
-        /* width: 100%;
-        height: 300px; */
         width: 440px;
         height: 310px;
         object-fit: cover;
