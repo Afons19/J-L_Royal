@@ -132,6 +132,216 @@
     font-size: 14px;
 }
 
+/* Estilos da Página Sobre */
+.about-section {
+    padding: 80px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    margin: 50px 0;
+    align-items: center;
+}
+
+.about-text {
+    padding-right: 30px;
+}
+
+.featured-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Valores */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.value-item {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.value-item span {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.value-item h3 {
+    font-size: 1.4rem;
+    margin: 15px 0;
+    color: #1a1a1a;
+}
+
+.value-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Secção da Equipa */
+.team-section {
+    padding: 80px 0;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*3*/
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.team-member {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.member-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.member-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.member-role {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.member-bio {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.member-social a {
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.member-social a:hover {
+    color: #666;
+}
+
+/* Seção de Conquistas */
+.achievements-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.achievement-item {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-number {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.achievement-label {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.achievement-desc {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
 .learn-more {
     display: inline-block;
     padding: 12px 30px;
@@ -502,6 +712,41 @@
 }
 
 @media (max-width: 480px) {
+    .values-grid {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .about-image img {
+        display: none;
+    }
+
+    .about-content {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .achievements-grid {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+    }
+
+    .io {
+        padding: 55px 30px;
+    }
+
+    .ios {
+        padding: 50px 60px;
+    }
+
     .services-hero h1 {
         font-size: 2.5rem;
     }
