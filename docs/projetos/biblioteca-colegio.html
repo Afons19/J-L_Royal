@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca do Colégio Politécnico - J&L Royal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base e reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            color: #1a1a1a;
+            background-color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.9);
+            transition: background-color 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .header-container > a {
+            text-decoration: none;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .nav-menu .active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .nav-menu .active::after {
+            width: 100%;
+        }
+
+        /* Hero do Projeto */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/imagens/exemp1\ \(2\).JPG');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-value {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        /* Sobre o Projeto */
+        .project-about {
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            padding-right: 30px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Galeria */
+        .project-gallery {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Detalhes do Projeto */
+        .project-details {
+            padding: 80px 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .detail-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-icon {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .detail-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Navegação entre Projetos */
+        .project-navigation {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+
+        .nav-projects {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            background: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #1a1a1a;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: 45%;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-btn span {
+            font-size: 1.2rem;
+        }
+
+        .nav-info {
+            flex-grow: 1;
+        }
+
+        .nav-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .nav-project-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-info h3 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 20px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #666;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-contact ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #999;
+        }
+
+        .footer-contact ul li i {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .project-title {
+                font-size: 3.5rem;
+            }
+            
+            .details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease-in-out;
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 20px 0;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease-in-out;
+            }
+            
+            .nav-menu.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .nav-menu li a {
+                color: white;
+                font-size: 1.2rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-projects {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-heading {
+                font-size: 2rem;
+            }
+            
+            .gallery-item {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">J&L Royal Arquitetura e Consultoria</a>
+            
+            <button class="menu-toggle">☰</button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" target="_self">Início</a></li>
+                <li><a href="../projetos.html" target="_parent">Projetos</a></li>
+                <li><a href="servicos.html" target="_parent">Serviços</a></li>
+                <li><a href="sobre.html" target="_parent">Sobre Nós</a></li>
+                <li><a href="contactos.html" target="_parent">Contactos</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="hero-content">
+            <h1 class="project-title">Biblioteca do Colégio Politécnico</h1>
+            <p class="project-subtitle">Projeto institucional com foco em funcionalidade e conforto para estudantes</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-value">Institucional</div>
+                    <div class="meta-label">Categoria</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-value">2025</div>
+                    <div class="meta-label">Ano</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-value">Huambo</div>
+                    <div class="meta-label">Localização</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="project-about">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">Sobre o Projeto</h2>
+                    <h3 class="section-heading">Um espaço de conhecimento e inspiração</h3>
+                    
+                    <p>A Biblioteca do Colégio Politécnico foi concebida para ser muito mais do que um simples depósito de livros. Este projeto arquitetónico inovador cria um ambiente que inspira a aprendizagem, promove a colaboração e oferece diversos espaços para estudo e reflexão.</p>
+                    
+                    <p>Com uma área total de 1.200 m², a biblioteca foi projetada para acomodar mais de 15.000 volumes, além de oferecer zonas de estudo individual, salas de grupo, áreas multimédia e um auditório para eventos académicos.</p>
+                    
+                    <p>O design incorpora elementos da arquitetura contemporânea angolana, com claraboias que maximizam a iluminação natural e um sistema de ventilação passiva que reduz o consumo energético. Os materiais escolhidos priorizam a durabilidade e o baixo mantenimento, adequando-se ao clima local.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="../assets/imagens/exemp2.JPG" alt="Interior da Biblioteca">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-gallery">
+            <h2 class="section-title">Galeria</h2>
+            <h3 class="section-heading">Visão geral do projeto</h3>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../assets/imagens/exemp3.jpg" alt="área de leitura principal">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/imagens/exemp2.JPG" alt="Estantes de livros">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/imagens/exemp2.JPG" alt="Estantes de livros">
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/imagens/exemp3.jpg" alt="área de leitura principal">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-details">
+            <h2 class="section-title">Detalhes</h2>
+            <h3 class="section-heading">Características do projeto</h3>
+            
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">square_foot</span>
+                    </div>
+                    <h3>Área Construída</h3>
+                    <p>1.200 m² distribuídos em dois pisos, com capacidade para 200 estudantes simultaneamente.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">eco</span>
+                    </div>
+                    <h3>Sustentabilidade</h3>
+                    <p>Sistema de captação de água pluvial, painéis solares e ventilação natural para reduzir o consumo energético.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">library_books</span>
+                    </div>
+                    <h3>Acervo</h3>
+                    <p>Capacidade para mais de 15.000 volumes, com áreas especializadas por disciplinas académicas.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">groups</span>
+                    </div>
+                    <h3>Espaços Colaborativos</h3>
+                    <p>6 salas de estudo em grupo, 2 salas multimédia e 1 auditório com capacidade para 60 pessoas.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                    </div>
+                    <h3>Iluminação</h3>
+                    <p>Sistema de iluminação LED eficiente combinado com claraboias para maximizar a luz natural.</p>
+                </div>
+                
+                <div class="detail-card">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">wifi</span>
+                    </div>
+                    <h3>Tecnologia</h3>
+                    <p>Wi-Fi de alta velocidade, pontos de carregamento em todas as mesas e sistema de gestão bibliotecária automatizado.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-navigation">
+            <h2 class="section-title">Explore outros projetos</h2>
+            <h3 class="section-heading">Descubra mais do nosso trabalho</h3>
+            
+            <div class="nav-projects">
+                <a href="projeto-casa-moderna-huambo.html" class="nav-btn">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                    <div class="nav-info">
+                        <div class="nav-label">Projeto anterior</div>
+                        <div class="nav-project-name">Casa Moderna Huambo</div>
+                    </div>
+                </a>
+                
+                <a href="projeto-centro-comercial-vista.html" class="nav-btn">
+                    <div class="nav-info">
+                        <div class="nav-label">Próximo projeto</div>
+                        <div class="nav-project-name">Centro Comercial Vista</div>
+                    </div>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>J&L Royal</h3>
+                    <p>Arquitetura e Consultoria de excelência, transformando visões em realidade desde 2024.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html" target="_parent">Início</a></li>
+                        <li><a href="projetos.html" target="_parent">Projetos</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="sobre.html" target="_parent">Sobre Nós</a></li>
+                        <li><a href="contactos.html" target="_parent">Contactos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-services">
+                    <h4>Nossos Serviços</h4>
+                    <ul>
+                        <li><a href="#">Projetos Residenciais</a></li>
+                        <li><a href="#">Projetos Comerciais</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                        <li><a href="#">Design de Interiores</a></li>
+                        <li><a href="#">Reformas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fa fa-map-marker"></i> Huambo, Rua 5</li>
+                        <li><i class="fa fa-phone"></i> +244 923 456 789</li>
+                        <li><i class="fa fa-envelope"></i> info@jlroyal.co.ao</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 J&L Royal Arquitetura e Consultoria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
