@@ -36,7 +36,7 @@ header {
     z-index: 1000;
     background: url('../imagens/heroSection.JPG') center center;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
     display: flex;
     flex-direction: column;
     color: white;

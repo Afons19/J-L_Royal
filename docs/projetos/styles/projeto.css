@@ -609,6 +609,14 @@ main {
 }
     
 @media (max-width: 480px) {
+    /* .project-hero {
+        background-image: url('../../assets/imagens/biblioteca-colegio/BiBlioteca_C-4.jpg');
+        background-attachment: scroll;
+        background-size: cover;
+        height: auto;
+    } */
+
+
     .project-title {
         font-size: 2rem;
     }
