@@ -34,7 +34,7 @@ header {
     height: 100vh;
     padding: 20px 0;
     z-index: 1000;
-    background: url('../imagens/heroSection.JPG') center center;
+    background: url('../imagens/heroSection.JPG') center center no-repeat;
     background-size: cover;
     background-attachment: scroll;
     display: flex;
